@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <title>Document</title>
+</head>
+
+<body style="background-color:lightblue">
+  <div class="container" style="height:670px">
+    <div class="jumbotron" style=" height: 50px ; margin-top:25px">
+      <nav>
+        <ul class="nav nav-pills pull-right" style="margin:-20px 0 0 0">
+          <li role="presentation"><a class="btn btn-primary" style="margin-right: 10px;" href="/">Ana Sayfa</a></li>
+          <li role="presentation"><a class="btn btn-primary" style="margin-right: 10px;" href="/new_student">Yeni Kayıt</a></li>
+          <li role="presentation"><a class="btn btn-primary" style="margin-right: 10px;" href="/search">Kayıt Ara</a></li>
+          <li role="presentation"><a class="btn btn-primary active" style="margin-right: 10px;" href="/statistic">Şehire Göre İstatistik Çıkar</a></li>
+
+        </ul>
+      </nav>
+    </div>
+
+    {% if rows!=[] %}
+    <table border=1 class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <td>Şehir</td>
+      </thead>
+      {% for row in rows %}
+      <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <h1>Kayıt bulunmamaktadır.</h1>
+    {% endif %}
+
+  </div>
+  <div class="container">
+    <footer class="footer" style="float:right">
+      <p>&copy; ŞAHAN Company</p>
+    </footer>
+  </div>
+</body>
+
+</html>

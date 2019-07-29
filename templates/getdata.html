@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <title>Document</title>
+</head>
+
+<body style="background-color:lightblue">
+  <div class="container" style="height:670px">
+    <div class="jumbotron" style=" height: 50px ; margin-top:25px">
+      <nav>
+        <ul class="nav nav-pills pull-right" style="margin:-20px 0 0 0">
+          <li role="presentation"><a class="btn btn-primary" style="margin-right: 10px;" href="/">Ana Sayfa</a></li>
+          <li role="presentation"><a class="btn btn-primary" style="margin-right: 10px;" href="/new_student">Yeni Kayıt</a></li>
+          <li role="presentation"><a class="btn btn-primary active" style="margin-right: 10px;" href="/search">Kayıt Ara</a></li>
+          <li role="presentation"><a class="btn btn-primary" style="margin-right: 10px;" href="/statistic">Şehire Göre İstatistik Çıkar</a></li>
+
+        </ul>
+      </nav>
+    </div>
+
+    <form class="form-inline" action="{{ url_for('search_entry') }}" , method="POST">
+      <div class="form-group row" style="margin-left:auto;margin-right:auto;">
+        <input type="text" class="form-control" style="margin:10px" name="std_id" placeholder="Öğrenci Numarası" /><br><br>
+        <input type="text" class="form-control" style="margin:10px" name="first_Name" placeholder="Ad" /><br><br>
+        <input type="text" class="form-control" style="margin:10px" name="last_Name" placeholder="Soyad"><br><br>
+        <input type="text" class="form-control" style="margin:10px" name="city" placeholder="Şehir" /><br> <br>
+        <input type="submit" class="btn btn-success" style="margin-left:40px" value="GÖNDER" /><br>
+      </div>
+    </form>
+    <h2 style="margin-left:auto;margin-right:auto; color:red">{{msg}}</h2>
+  </div>
+  <div class="container">
+    <footer class="footer" style="float:right">
+      <p>&copy; ŞAHAN Company</p>
+    </footer>
+  </div>
+</body>
+
+</html>
